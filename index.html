@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StayHub | Find Your Perfect Stay</title>
+
+    <meta
+        name="description"
+        content="StayHub helps you find verified PGs, hostels, rooms, flats, hotels and homestays."
+    >
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar" id="navbar">
+
+    <a href="#home" class="logo">
+
+        <span class="logo-icon">
+            <i class="fa-solid fa-house"></i>
+        </span>
+
+        Stay<span>Hub</span>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="#home" class="active">Home</a>
+
+        <a href="#properties">Explore</a>
+
+        <a href="#categories">Categories</a>
+
+        <a href="#about">About</a>
+
+        <a href="#how-it-works">How It Works</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <button
+            class="theme-btn"
+            id="themeBtn"
+            aria-label="Toggle dark mode"
+        >
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+
+        <button
+            class="login-btn"
+            onclick="openModal()"
+        >
+            Login
+        </button>
+
+
+        <a
+            href="#owner"
+            class="owner-btn"
+        >
+            List Property
+        </a>
+
+    </div>
+
+
+    <button
+        class="mobile-menu-btn"
+        onclick="toggleMenu()"
+    >
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</header>
+
+
+<!-- ================= MOBILE MENU ================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#home" onclick="toggleMenu()">Home</a>
+
+    <a href="#properties" onclick="toggleMenu()">Explore</a>
+
+    <a href="#categories" onclick="toggleMenu()">Categories</a>
+
+    <a href="#about" onclick="toggleMenu()">About</a>
+
+    <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+
+    <button onclick="openModal(); toggleMenu()">
+        Login / Register
+    </button>
+
+</div>
+
+
+
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            India's smarter accommodation platform
+
+        </div>
+
+
+        <h1>
+
+            Find a place
+
+            <span>you'll love.</span>
+
+        </h1>
+
+
+        <p>
+
+            Discover verified PGs, hostels, rooms, flats,
+            hotels and homestays — all in one place.
+
+        </p>
+
+
+        <!-- SEARCH BOX -->
+
+        <div class="search-container">
+
+            <div class="search-field">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+
+                    <label>Location</label>
+
+                    <input
+                        type="text"
+                        id="locationInput"
+                        placeholder="City, area or landmark"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="search-field">
+
+                <i class="fa-solid fa-building"></i>
+
+                <div>
+
+                    <label>Property Type</label>
+
+                    <select id="typeInput">
+
+                        <option value="all">
+                            All properties
+                        </option>
+
+                        <option value="PG">
+                            PG
+                        </option>
+
+                        <option value="Hostel">
+                            Hostel
+                        </option>
+
+                        <option value="Flat">
+                            Flat
+                        </option>
+
+                        <option value="Room">
+                            Room
+                        </option>
+
+                        <option value="Hotel">
+                            Hotel
+                        </option>
+
+                        <option value="Homestay">
+                            Homestay
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="search-field">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                <div>
+
+                    <label>Budget</label>
+
+                    <select id="budgetInput">
+
+                        <option value="all">
+                            Any budget
+                        </option>
+
+                        <option value="5000">
+                            Under ₹5,000
+                        </option>
+
+                        <option value="10000">
+                            Under ₹10,000
+                        </option>
+
+                        <option value="20000">
+                            Under ₹20,000
+                        </option>
+
+                        <option value="30000">
+                            Under ₹30,000
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                onclick="searchProperties()"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+
+        <div class="hero-trust">
+
+            <div>
+                <i class="fa-solid fa-circle-check"></i>
+                Verified Properties
+            </div>
+
+            <div>
+                <i class="fa-solid fa-shield"></i>
+                Secure Booking
+            </div>
+
+            <div>
+                <i class="fa-solid fa-headset"></i>
+                24/7 Support
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <strong data-count="25000">
+            0
+        </strong>
+
+        <span>
+            Properties
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong data-count="120">
+            0
+        </strong>
+
+        <span>
+            Cities
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong data-count="50000">
+            0
+        </strong>
+
+        <span>
+            Happy Users
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong data-count="98">
+            0
+        </strong>
+
+        <span>
+            % Verified
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section
+    class="section"
+    id="categories"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                EXPLORE
+            </span>
+
+            <h2>
+                Find the right stay for you
+            </h2>
+
+            <p>
+                From budget-friendly PGs to premium apartments,
+                find exactly what you need.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <button
+            class="category-card"
+            onclick="selectCategory('PG')"
+        >
+
+            <div class="category-icon blue">
+
+                <i class="fa-solid fa-bed"></i>
+
+            </div>
+
+            <h3>PG</h3>
+
+            <p>
+                Comfortable long-term living
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="category-card"
+            onclick="selectCategory('Hostel')"
+        >
+
+            <div class="category-icon purple">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <h3>Hostels</h3>
+
+            <p>
+                Affordable shared stays
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="category-card"
+            onclick="selectCategory('Flat')"
+        >
+
+            <div class="category-icon orange">
+
+                <i class="fa-solid fa-building"></i>
+
+            </div>
+
+            <h3>Flats</h3>
+
+            <p>
+                Your next home
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="category-card"
+            onclick="selectCategory('Room')"
+        >
+
+            <div class="category-icon green">
+
+                <i class="fa-solid fa-door-open"></i>
+
+            </div>
+
+            <h3>Rooms</h3>
+
+            <p>
+                Private & shared rooms
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="category-card"
+            onclick="selectCategory('Hotel')"
+        >
+
+            <div class="category-icon pink">
+
+                <i class="fa-solid fa-hotel"></i>
+
+            </div>
+
+            <h3>Hotels</h3>
+
+            <p>
+                Short-term stays
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="category-card"
+            onclick="selectCategory('Homestay')"
+        >
+
+            <div class="category-icon teal">
+
+                <i class="fa-solid fa-house-chimney"></i>
+
+            </div>
+
+            <h3>Homestays</h3>
+
+            <p>
+                Feel at home
+            </p>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FEATURED PROPERTIES ================= -->
+
+<section
+    class="section property-section"
+    id="properties"
+>
+
+    <div class="section-header split">
+
+        <div>
+
+            <span class="section-label">
+                DISCOVER
+            </span>
+
+            <h2>
+                Featured properties
+            </h2>
+
+            <p>
+                Handpicked stays from trusted property owners.
+            </p>
+
+        </div>
+
+
+        <button
+            class="outline-btn"
+            onclick="showAllProperties()"
+        >
+            View all properties
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+
+    <div
+        class="property-grid"
+        id="propertyGrid"
+    ></div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+    class="about-section"
+    id="about"
+>
+
+    <div class="about-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"
+            alt="Modern apartment interior"
+        >
+
+        <div class="experience-card">
+
+            <strong>5+</strong>
+
+            <span>
+                Years of making
+                <br>
+                stays better
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <span class="section-label">
+            ABOUT STAYHUB
+        </span>
+
+        <h2>
+            Your home search,
+            <span>made simple.</span>
+        </h2>
+
+        <p>
+
+            Finding the right place to live shouldn't be
+            complicated. StayHub brings PGs, hostels,
+            rooms, flats, hotels and homestays together
+            on one simple platform.
+
+        </p>
+
+        <p>
+
+            We help students, professionals, families and
+            travelers discover verified properties with
+            transparent pricing and useful information.
+
+        </p>
+
+
+        <div class="about-features">
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Verified listings
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Transparent pricing
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Secure bookings
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Dedicated support
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button class="primary-btn">
+
+            Learn more
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY US ================= -->
+
+<section class="section why-section">
+
+    <div class="center-header">
+
+        <span class="section-label">
+            WHY STAYHUB
+        </span>
+
+        <h2>
+            Everything you need to find a place
+        </h2>
+
+        <p>
+            We make the entire accommodation search
+            simpler, safer and smarter.
+        </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>
+                Verified Properties
+            </h3>
+
+            <p>
+                Every verified property goes through
+                our quality and information checks.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <h3>
+                Smart Filters
+            </h3>
+
+            <p>
+                Filter by location, budget, amenities,
+                property type and more.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+
+            <h3>
+                Transparent Pricing
+            </h3>
+
+            <p>
+                See rent, deposits and important charges
+                before making your decision.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <h3>
+                Support When Needed
+            </h3>
+
+            <p>
+                Get help throughout your search and
+                booking journey.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section
+    class="how-section"
+    id="how-it-works"
+>
+
+    <div class="center-header">
+
+        <span class="section-label">
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            Finding your next stay is easy
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <h3>
+                Search
+            </h3>
+
+            <p>
+                Enter your location and choose the
+                type of property you're looking for.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-line"></div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+
+            <h3>
+                Compare
+            </h3>
+
+            <p>
+                Compare prices, facilities, ratings
+                and locations.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-line"></div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <h3>
+                Book
+            </h3>
+
+            <p>
+                Contact the owner or book your stay
+                securely.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= OWNER CTA ================= -->
+
+<section
+    class="owner-section"
+    id="owner"
+>
+
+    <div class="owner-content">
+
+        <span class="section-label">
+            FOR PROPERTY OWNERS
+        </span>
+
+        <h2>
+            Turn your property
+            <span>into an opportunity.</span>
+        </h2>
+
+        <p>
+
+            List your PG, hostel, room, flat or property
+            on StayHub and reach people actively looking
+            for accommodation.
+
+        </p>
+
+
+        <div class="owner-points">
+
+            <span>
+                <i class="fa-solid fa-check"></i>
+                Free listing
+            </span>
+
+            <span>
+                <i class="fa-solid fa-check"></i>
+                Manage enquiries
+            </span>
+
+            <span>
+                <i class="fa-solid fa-check"></i>
+                Reach more users
+            </span>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="openModal()"
+        >
+
+            List your property
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="owner-visual">
+
+        <div class="floating-card card-one">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+                <strong>Property Verified</strong>
+                <small>Just now</small>
+            </div>
+
+        </div>
+
+
+        <div class="building-icon">
+
+            <i class="fa-solid fa-building"></i>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+            <i class="fa-solid fa-users"></i>
+
+            <div>
+                <strong>New enquiry</strong>
+                <small>5 minutes ago</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="section testimonials">
+
+    <div class="center-header">
+
+        <span class="section-label">
+            USER STORIES
+        </span>
+
+        <h2>
+            Loved by our community
+        </h2>
+
+    </div>
+
+
+    <div class="testimonial-grid">
+
+
+        <div class="testimonial-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Finding a PG near my college became
+                much easier. I could compare different
+                options before contacting the owner."
+            </p>
+
+            <div class="user">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+
+                    <strong>
+                        Aarav Sharma
+                    </strong>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="testimonial-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The property listing process is simple
+                and the platform gives owners a much
+                better way to reach potential tenants."
+            </p>
+
+            <div class="user">
+
+                <div class="avatar">
+                    R
+                </div>
+
+                <div>
+
+                    <strong>
+                        Rahul Verma
+                    </strong>
+
+                    <span>
+                        Property Owner
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="testimonial-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "I needed a short stay while visiting
+                the city. Having hotels and homestays
+                in the same place made the search easy."
+            </p>
+
+            <div class="user">
+
+                <div class="avatar">
+                    P
+                </div>
+
+                <div>
+
+                    <strong>
+                        Priya Singh
+                    </strong>
+
+                    <span>
+                        Traveler
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FAQ ================= -->
+
+<section class="section faq-section">
+
+    <div class="center-header">
+
+        <span class="section-label">
+            FAQ
+        </span>
+
+        <h2>
+            Frequently asked questions
+        </h2>
+
+    </div>
+
+
+    <div class="faq-container">
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+
+                Is StayHub free to use?
+
+                <i class="fa-solid fa-plus"></i>
+
+            </button>
+
+            <div class="faq-answer">
+
+                Yes. Searching and exploring properties
+                is free for users.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+
+                What types of properties can I find?
+
+                <i class="fa-solid fa-plus"></i>
+
+            </button>
+
+            <div class="faq-answer">
+
+                You can find PGs, hostels, flats, rooms,
+                hotels and homestays.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+
+                Can property owners list their property?
+
+                <i class="fa-solid fa-plus"></i>
+
+            </button>
+
+            <div class="faq-answer">
+
+                Yes. Property owners can list their
+                accommodation and manage enquiries.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+
+                Are properties verified?
+
+                <i class="fa-solid fa-plus"></i>
+
+            </button>
+
+            <div class="faq-answer">
+
+                Properties marked as verified have
+                completed our verification process.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+    <div class="contact-info">
+
+        <span class="section-label">
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            Have a question?
+            <span>Let's talk.</span>
+        </h2>
+
+        <p>
+            We're here to help you with your
+            accommodation journey.
+        </p>
+
+
+        <div class="contact-item">
+
+            <div>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <span>
+                ayushpathak120808@gmail.com
+            </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div>
+                <i class="fa-solid fa-phone"></i>
+            </div>
+
+            <span>
+                +91 9696714686
+            </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <span>
+                India
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <form
+        class="contact-form"
+        onsubmit="sendMessage(event)"
+    >
+
+        <div class="form-row">
+
+            <input
+                type="text"
+                placeholder="Your name"
+                required
+            >
+
+            <input
+                type="email"
+                placeholder="Email address"
+                required
+            >
+
+        </div>
+
+
+        <input
+            type="text"
+            placeholder="Subject"
+            required
+        >
+
+
+        <textarea
+            placeholder="Write your message..."
+            rows="6"
+            required
+        ></textarea>
+
+
+        <button class="primary-btn">
+
+            Send message
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+    </form>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <a href="#home" class="logo">
+
+                <span class="logo-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                Stay<span>Hub</span>
+
+            </a>
+
+            <p>
+
+                Making accommodation search
+                simple, transparent and accessible.
+
+            </p>
+
+
+            <div class="socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="#properties">Properties</a>
+            <a href="#categories">PGs</a>
+            <a href="#categories">Hostels</a>
+            <a href="#categories">Flats</a>
+            <a href="#categories">Hotels</a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>Company</h4>
+
+            <a href="#about">About us</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#contact">Contact</a>
+            <a href="#owner">List your property</a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>Support</h4>
+
+            <a href="#">Help center</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms</a>
+            <a href="#">Safety</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 StayHub. All rights reserved.
+        </span>
+
+        <span>
+            Made for better stays.
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div
+    class="modal"
+    id="loginModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-house"></i>
+
+        </div>
+
+
+        <h2>
+            Welcome to StayHub
+        </h2>
+
+        <p>
+            Login or create an account to continue.
+        </p>
+
+
+        <input
+            type="email"
+            placeholder="Email address"
+        >
+
+
+        <input
+            type="password"
+            placeholder="Password"
+        >
+
+
+        <button
+            class="primary-btn full"
+            onclick="loginDemo()"
+        >
+
+            Continue
+
+        </button>
+
+
+        <div class="divider">
+            or
+        </div>
+
+
+        <button class="google-btn">
+
+            <i class="fa-brands fa-google"></i>
+
+            Continue with Google
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">
+        Done
+    </span>
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
